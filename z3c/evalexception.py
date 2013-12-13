@@ -1,8 +1,8 @@
 import zope.security.management
-from paste.evalexception.middleware import EvalException
+from weberror.evalexception import EvalException
 
 class ZopeEvalException(EvalException):
-    """Wrapper around Paste's EvalException middleware that simply
+    """Wrapper around WebError's EvalException middleware that simply
     tells zope.publisher to let exceptions propagate to the middleware."""
 
     def __call__(self, environ, start_response):

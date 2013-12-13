@@ -20,7 +20,7 @@ easily refer to it in a PasteDeploy-style configuration file using the
   use = egg:YourApp
 
   [server:main]
-  use = egg:Paste#http
+  use = egg:waitress#main
   host = 127.0.0.1
   port = 8080
 
@@ -39,12 +39,17 @@ a PasteDeploy-style configuration file using the ``pdb`` entry-point::
   use = egg:YourApp
 
   [server:main]
-  use = egg:Paste#http
+  use = egg:waitress#main
   host = 127.0.0.1
   port = 8080
 
 Changes
 =======
+
+3.0 (2013-12-13)
+----------------
+
+Switch from Paste to WebError.
 
 2.0 (2007-08-23)
 ----------------

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='z3c.evalexception',
-      version = '2.0',
+      version = '3.0',
       license='ZPL 2.1',
       description="Debugging middlewares for zope.publisher-based web "
       "applications",
@@ -16,12 +16,11 @@ setup(name='z3c.evalexception',
                      'Operating System :: OS Independent',
                      'Topic :: Internet :: WWW/HTTP',
                      'Framework :: Zope3',
-                     'Framework :: Paste',
                      ],
 
       packages=find_packages(),
       namespace_packages=['z3c'],
-      install_requires=['setuptools', 'Paste', 'zope.security'],
+      install_requires=['setuptools', 'WebError', 'zope.security'],
       zip_safe=True,
       entry_points="""
       [paste.filter_app_factory]
