@@ -2,3 +2,5 @@ include *.py
 include *.txt
 include buildout.cfg
 include test.ini
+include .coveragerc
+include tox.ini

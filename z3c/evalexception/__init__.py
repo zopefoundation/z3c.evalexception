@@ -40,8 +40,8 @@ def TestApplication(environ, start_response):
     """A simple WSGI app that raises an exception for testing
     purposes.  Nothing to see here."""
     raise RuntimeError('The test application is raising this.')
-    start_response('200 OK', [('Content-type', 'text/plain')])
-    yield "Test Application"
+    start_response('200 OK', [('Content-type', 'text/plain')]) # pragma: nocover
+    yield "Test Application"                                   # pragma: nocover
 
 def test_application_factory(global_config):
     return TestApplication
