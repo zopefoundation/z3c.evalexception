@@ -1,6 +1,7 @@
 import zope.security.management
 from paste.evalexception.middleware import EvalException
 
+
 class ZopeEvalException(EvalException):
     """Wrapper around Paste's EvalException middleware that simply
     tells zope.publisher to let exceptions propagate to the middleware."""
@@ -9,8 +10,10 @@ class ZopeEvalException(EvalException):
         environ['wsgi.handleErrors'] = False
         return super(ZopeEvalException, self).__call__(environ, start_response)
 
+
 def zope_eval_exception(app, global_conf):
     return ZopeEvalException(app)
+
 
 def PostMortemDebug(application):
     """Middleware that catches exceptions coming from a
@@ -21,8 +24,9 @@ def PostMortemDebug(application):
         try:
             for chunk in application(environ, start_response):
                 yield chunk
-        except:
-            import sys, pdb
+        except Exception:
+            import sys
+            import pdb
             print("%s:" % sys.exc_info()[0])
             print(sys.exc_info()[1])
             zope.security.management.restoreInteraction()
@@ -33,15 +37,19 @@ def PostMortemDebug(application):
                 zope.security.management.endInteraction()
     return middleware
 
+
 def post_mortem_debug(app, global_conf):
     return PostMortemDebug(app)
+
 
 def TestApplication(environ, start_response):
     """A simple WSGI app that raises an exception for testing
     purposes.  Nothing to see here."""
     raise RuntimeError('The test application is raising this.')
-    start_response('200 OK', [('Content-type', 'text/plain')]) # pragma: nocover
-    yield "Test Application"                                   # pragma: nocover
+    start_response('200 OK',                          # pragma: nocover
+                   [('Content-type', 'text/plain')])  # pragma: nocover
+    yield "Test Application"                          # pragma: nocover
+
 
 def test_application_factory(global_config):
     return TestApplication

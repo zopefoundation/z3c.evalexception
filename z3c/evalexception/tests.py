@@ -48,7 +48,8 @@ class TestZopeEvalException(WsgiMiddlewareTestCase):
     def test(self):
         body = self.request()
         self.assertIn('<title>Server Error</title>', body)
-        self.assertIn('RuntimeError: The test application is raising this.', body)
+        self.assertIn('RuntimeError: The test application is raising this.',
+                      body)
 
 
 class TestPostMortemDebug(WsgiMiddlewareTestCase):
