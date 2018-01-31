@@ -2,9 +2,10 @@ language: python
 sudo: false
 python:
     - 2.7
+    - 3.6
 install:
-    - python bootstrap.py
-    - bin/buildout
+    - pip install -U -r requirements.txt
+    - buildout -v
 script:
     - bin/test -v1
 notifications:

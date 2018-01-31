@@ -1,4 +1,4 @@
-from cStringIO import StringIO
+from io import BytesIO
 import unittest
 
 import mock
@@ -26,8 +26,8 @@ class WsgiMiddlewareTestCase(unittest.TestCase):
             'HTTP_HOST': 'localhost:8080',
             'wsgi.version': (1, 0),
             'wsgi.url_scheme': 'http',
-            'wsgi.input': StringIO(),
-            'wsgi.errors': StringIO(),
+            'wsgi.input': BytesIO(),
+            'wsgi.errors': BytesIO(),
             'wsgi.multithread': False,
             'wsgi.multiprocess': False,
             'wsgi.run_once': False,
@@ -38,7 +38,7 @@ class WsgiMiddlewareTestCase(unittest.TestCase):
         environ.update(kwargs)
         start_response = mock.Mock()
         body_iter = self.middleware(environ, start_response)
-        return ''.join(body_iter)
+        return b''.join(body_iter)
 
 
 class TestZopeEvalException(WsgiMiddlewareTestCase):
@@ -47,8 +47,9 @@ class TestZopeEvalException(WsgiMiddlewareTestCase):
 
     def test(self):
         body = self.request()
-        self.assertIn('<title>Server Error</title>', body)
-        self.assertIn('RuntimeError: The test application is raising this.', body)
+        self.assertIn(b'<title>Server Error</title>', body)
+        self.assertIn(b'RuntimeError: The test application is raising this.',
+                      body)
 
 
 class TestPostMortemDebug(WsgiMiddlewareTestCase):
