@@ -1,4 +1,11 @@
+import os.path
 from setuptools import setup, find_packages
+
+
+def read(*rnames):
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
+
 
 setup(name='z3c.evalexception',
       version='3.0.dev0',
@@ -7,7 +14,11 @@ setup(name='z3c.evalexception',
       "applications",
       author='Philipp von Weitershausen',
       author_email='philipp@weitershausen.de',
-      long_description=open('README.txt').read(),
+      long_description=(
+          read('README.rst')
+          + '\n\n' +
+          read('CHANGES.rst')
+          ),
       classifiers=['Development Status :: 5 - Production/Stable',
                    'Environment :: Web Environment',
                    'Intended Audience :: Developers',
