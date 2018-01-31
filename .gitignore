@@ -10,4 +10,7 @@ develop-eggs/
 dist/
 eggs/
 htmlcov/
+lib/
 parts/
+pip-selfcheck.json
+pyvenv.cfg
