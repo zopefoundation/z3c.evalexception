@@ -4,8 +4,8 @@ python:
     - 2.7
     - 3.6
 install:
-    - pip install -r requirements.txt
-    - bin/buildout
+    - pip install -U -r requirements.txt
+    - bin/buildout -v
 script:
     - bin/test -v1
 notifications:
