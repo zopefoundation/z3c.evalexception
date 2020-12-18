@@ -1,0 +1,20 @@
+# Generated from:
+# https://github.com/zopefoundation/meta/tree/master/config/pure-python
+[meta]
+template = "pure-python"
+commit-id = "13d63a597af449ff5a6a130d86943f6db556cbdc"
+
+[python]
+with-pypy = false
+with-legacy-python = true
+with-docs = false
+with-sphinx-doctests = false
+with-appveyor = false
+
+[coverage]
+fail-under = 94
+
+[manifest]
+additional-rules = [
+    "include test.ini",
+    ]
