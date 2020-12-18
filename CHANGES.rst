@@ -4,7 +4,8 @@ Changes
 3.0 (unreleased)
 ----------------
 
-- Python 3 compatibility
+- Add support for Python 3.5, 3.6, 3.7, 3.8 and 3.9.
+
 
 2.0 (2007-08-23)
 ----------------
