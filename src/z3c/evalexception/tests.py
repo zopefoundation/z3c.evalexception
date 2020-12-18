@@ -5,6 +5,11 @@ import mock
 
 import z3c.evalexception
 
+try:
+    from StringIO import StringIO  # PY2
+except ImportError:
+    from io import StringIO
+
 
 class WsgiMiddlewareTestCase(unittest.TestCase):
 
@@ -27,7 +32,7 @@ class WsgiMiddlewareTestCase(unittest.TestCase):
             'wsgi.version': (1, 0),
             'wsgi.url_scheme': 'http',
             'wsgi.input': BytesIO(),
-            'wsgi.errors': BytesIO(),
+            'wsgi.errors': StringIO(),
             'wsgi.multithread': False,
             'wsgi.multiprocess': False,
             'wsgi.run_once': False,
