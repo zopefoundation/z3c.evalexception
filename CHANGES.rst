@@ -10,7 +10,7 @@ Changes
 2.0 (2007-08-23)
 ----------------
 
-- Added the ``PostMortemDebug`` (pdb) middelware.
+- Add the ``PostMortemDebug`` (pdb) middleware.
 
 1.0 (2007-06-02)
 ----------------
