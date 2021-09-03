@@ -42,7 +42,10 @@ setup(name='z3c.evalexception',
       namespace_packages=['z3c'],
       install_requires=['setuptools', 'Paste', 'zope.security'],
       extras_require={
-          'test': ['mock'],
+          'test': [
+              'mock',
+              'zope.testrunner',
+          ],
       },
       zip_safe=True,
       entry_points="""
