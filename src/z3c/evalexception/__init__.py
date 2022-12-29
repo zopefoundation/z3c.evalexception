@@ -25,8 +25,8 @@ def PostMortemDebug(application):
             for chunk in application(environ, start_response):
                 yield chunk
         except Exception:
-            import sys
             import pdb
+            import sys
             print("%s:" % sys.exc_info()[0])
             print(sys.exc_info()[1])
             zope.security.management.restoreInteraction()

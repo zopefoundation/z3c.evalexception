@@ -1,9 +1,10 @@
-from io import BytesIO
 import unittest
+from io import BytesIO
 
 import mock
 
 import z3c.evalexception
+
 
 try:
     from StringIO import StringIO  # PY2
