@@ -1,15 +1,9 @@
 import unittest
 from io import BytesIO
-
-import mock
+from io import StringIO
+from unittest import mock
 
 import z3c.evalexception
-
-
-try:
-    from StringIO import StringIO  # PY2
-except ImportError:
-    from io import StringIO
 
 
 class WsgiMiddlewareTestCase(unittest.TestCase):
