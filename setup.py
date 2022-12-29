@@ -1,5 +1,7 @@
 import os.path
-from setuptools import setup, find_packages
+
+from setuptools import find_packages
+from setuptools import setup
 
 
 def read(*rnames):
@@ -8,7 +10,7 @@ def read(*rnames):
 
 
 setup(name='z3c.evalexception',
-      version='3.1.dev0',
+      version='4.0.dev0',
       license='ZPL 2.1',
       description="Debugging middlewares for zope.publisher-based web "
       "applications",
@@ -19,24 +21,24 @@ setup(name='z3c.evalexception',
           + '\n\n' +
           read('CHANGES.rst')
       ),
-      classifiers=['Development Status :: 5 - Production/Stable',
-                   'Environment :: Web Environment',
-                   'Intended Audience :: Developers',
-                   'License :: OSI Approved :: Zope Public License',
-                   'Programming Language :: Python',
-                   'Operating System :: OS Independent',
-                   'Topic :: Internet :: WWW/HTTP',
-                   'Programming Language :: Python',
-                   'Programming Language :: Python :: 2',
-                   'Programming Language :: Python :: 2.7',
-                   'Programming Language :: Python :: 3',
-                   'Programming Language :: Python :: 3.5',
-                   'Programming Language :: Python :: 3.6',
-                   'Programming Language :: Python :: 3.7',
-                   'Programming Language :: Python :: 3.8',
-                   'Programming Language :: Python :: 3.9',
-                   'Framework :: Zope :: 3',
-                   'Framework :: Paste'],
+      classifiers=[
+          'Development Status :: 5 - Production/Stable',
+          'Environment :: Web Environment',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: Zope Public License',
+          'Programming Language :: Python',
+          'Operating System :: OS Independent',
+          'Topic :: Internet :: WWW/HTTP',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: 3.8',
+          'Programming Language :: Python :: 3.9',
+          'Programming Language :: Python :: 3.10',
+          'Programming Language :: Python :: 3.11',
+          'Framework :: Zope :: 3',
+          'Framework :: Paste',
+      ],
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['z3c'],

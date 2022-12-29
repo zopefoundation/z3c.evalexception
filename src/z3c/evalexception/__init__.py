@@ -8,7 +8,7 @@ class ZopeEvalException(EvalException):
 
     def __call__(self, environ, start_response):
         environ['wsgi.handleErrors'] = False
-        return super(ZopeEvalException, self).__call__(environ, start_response)
+        return super().__call__(environ, start_response)
 
 
 def zope_eval_exception(app, global_conf):
@@ -22,11 +22,10 @@ def PostMortemDebug(application):
     def middleware(environ, start_response):
         environ['wsgi.handleErrors'] = False
         try:
-            for chunk in application(environ, start_response):
-                yield chunk
+            yield from application(environ, start_response)
         except Exception:
-            import sys
             import pdb
+            import sys
             print("%s:" % sys.exc_info()[0])
             print(sys.exc_info()[1])
             zope.security.management.restoreInteraction()
