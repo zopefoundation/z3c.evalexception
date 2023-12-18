@@ -10,7 +10,7 @@ def read(*rnames):
 
 
 setup(name='z3c.evalexception',
-      version='4.0',
+      version='4.1.dev0',
       license='ZPL 2.1',
       description="Debugging middlewares for zope.publisher-based web "
       "applications",
