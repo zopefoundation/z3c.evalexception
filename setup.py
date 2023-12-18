@@ -16,6 +16,7 @@ setup(name='z3c.evalexception',
       "applications",
       author='Philipp von Weitershausen',
       author_email='philipp@weitershausen.de',
+      url="https://github.com/zopefoundation/z3c.evalexception",
       long_description=(
           read('README.rst')
           + '\n\n' +
